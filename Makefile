@@ -9,3 +9,6 @@ install:
 	mkdir -p ~/.vim/ftplugin
 	cp vim/ftplugin/* ~/.vim/ftplugin/
 	cp vim/filetype.vim ~/.vim/filetype.vim
+
+	# gitconfig
+	cp gitconfig ~/.gitconfig

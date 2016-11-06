@@ -1,0 +1,8 @@
+[user]
+	name = Hokuto Shinoda
+[push]
+	default = current
+[core]
+	editor = vi
+[color]
+	ui = true
