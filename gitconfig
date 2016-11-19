@@ -6,3 +6,6 @@
 	editor = vi
 [color]
 	ui = true
+[alias]
+    st = status
+    co = checkout
