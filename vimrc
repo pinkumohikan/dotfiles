@@ -11,7 +11,7 @@ set showmatch
 "=========================
 set encoding=utf-8
 set fileformats=unix,dos,mac
-set fileencodings=utf-8
+set fileencodings=utf-8,euc-jp
 
 "=========================
 " Searching and replace
