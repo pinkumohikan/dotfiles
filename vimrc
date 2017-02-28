@@ -35,3 +35,4 @@ set shiftwidth=4
 " Other
 "=========================
 filetype plugin on
+hi Comment ctermfg=Blue
