@@ -12,3 +12,6 @@ install:
 
 	# gitconfig
 	cp gitconfig ~/.gitconfig
+
+	# ssh config
+	cp ssh/config ~/.ssh/config
