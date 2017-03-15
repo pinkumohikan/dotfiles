@@ -14,4 +14,6 @@ install:
 	cp gitconfig ~/.gitconfig
 
 	# ssh config
+	mkdir -p ~/.ssh
+	chmod 700 ~/.ssh
 	cp ssh/config ~/.ssh/config
