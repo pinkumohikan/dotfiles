@@ -17,3 +17,4 @@ install:
 	mkdir -p ~/.ssh
 	chmod 700 ~/.ssh
 	cp ssh/config ~/.ssh/config
+	chmod 700 .ssh/config
