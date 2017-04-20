@@ -1,23 +1,15 @@
 
-.PHONY: defualt install vim screen siege
+.PHONY: defualt install vim screen git ssh siege
 default: install
 
 install:
 	$(MAKE) vim
 	$(MAKE) screen
-	#$(MAKE) siege
-
-	# gitconfig
-	cp gitconfig ~/.gitconfig
-
-	# ssh config
-	mkdir -p ~/.ssh
-	chmod 700 ~/.ssh
-	cp ssh/config ~/.ssh/config
-	chmod 700 .ssh/config
+	$(MAKE) git
+	$(MAKE) ssh
+	$(MAKE) siege
 
 vim:
-	mv ~/.vimrc ~/.vimrc.bak >/dev/null 2>&1 || true
 	cp vimrc ~/.vimrc
 	mkdir -p ~/.vim/ftplugin
 	cp vim/ftplugin/* ~/.vim/ftplugin/
@@ -25,6 +17,14 @@ vim:
 
 screen:
 	cp screenrc ~/.screenrc
+
+git:
+	cp git/gitconfig ~/.gitconfig
+
+ssh:
+	mkdir -p ~/.ssh
+	cp ssh/config ~/.ssh/config
+	chmod 700 ~/.ssh ~.ssh/config
 
 siege:
 	mkdir -p ~/.siege
