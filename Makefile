@@ -1,5 +1,5 @@
 
-.PHONY: defualt install vim screen git ssh siege
+.PHONY: defualt install vim screen git ssh mysql siege
 default: install
 
 install:
@@ -7,6 +7,7 @@ install:
 	$(MAKE) screen
 	$(MAKE) git
 	$(MAKE) ssh
+	$(MAKE) mysql
 	$(MAKE) siege
 
 vim:
@@ -25,6 +26,9 @@ ssh:
 	mkdir -p ~/.ssh
 	cp ssh/config ~/.ssh/config
 	chmod 700 ~/.ssh ~.ssh/config
+
+mysql:
+	cp mysql/my.cnf ~/.my.cnf
 
 siege:
 	mkdir -p ~/.siege
