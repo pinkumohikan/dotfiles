@@ -2,13 +2,11 @@
 " Base
 "=========================
 syntax on
-set number
-set scrolloff=5
-set showmatch
 
 "=========================
 " File
 "=========================
+filetype plugin on
 set encoding=utf-8
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,euc-jp
@@ -27,12 +25,23 @@ set nogdefault
 " Input
 "=========================
 set autoindent
+set smartindent
 set expandtab
 set tabstop=4
 set shiftwidth=4
 
 "=========================
+" Mapping
+"=========================
+nmap <Esc><Esc> :nohlsearch<CR>
+
+"=========================
 " Other
 "=========================
-filetype plugin on
-hi Comment ctermfg=Blue
+set number
+set scrolloff=5
+set showmatch
+set noerrorbells
+
+set laststatus=2
+highlight statusline term=NONE cterm=NONE guifg=gray ctermfg=black ctermbg=gray
