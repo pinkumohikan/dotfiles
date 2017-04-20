@@ -25,7 +25,7 @@ git:
 ssh:
 	mkdir -p ~/.ssh
 	cp ssh/config ~/.ssh/config
-	chmod 700 ~/.ssh ~.ssh/config
+	chmod 700 ~/.ssh ~/.ssh/config
 
 mysql:
 	cp mysql/my.cnf ~/.my.cnf
