@@ -1,10 +1,11 @@
 
-.PHONY: defualt install vim
+.PHONY: defualt install vim screen siege
 default: install
 
 install:
 	$(MAKE) vim
-	$(MAKE) sceen
+	$(MAKE) screen
+	#$(MAKE) siege
 
 	# gitconfig
 	cp gitconfig ~/.gitconfig
@@ -24,3 +25,7 @@ vim:
 
 screen:
 	cp screenrc ~/.screenrc
+
+siege:
+	mkdir -p ~/.siege
+	cp siege/siege.conf ~/.siege/siege.conf
