@@ -4,6 +4,7 @@ default: install
 
 install:
 	$(MAKE) vim
+	$(MAKE) sceen
 
 	# gitconfig
 	cp gitconfig ~/.gitconfig
@@ -20,3 +21,6 @@ vim:
 	mkdir -p ~/.vim/ftplugin
 	cp vim/ftplugin/* ~/.vim/ftplugin/
 	cp vim/filetype.vim ~/.vim/filetype.vim
+
+screen:
+	cp screenrc ~/.screenrc
