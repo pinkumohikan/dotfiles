@@ -12,11 +12,11 @@ install:
 
 vim:
 	cp vimrc ~/.vimrc
-	mkdir -p ~/.vim/ftplugin
-	cp vim/ftplugin/* ~/.vim/ftplugin/
-	cp vim/indent/* ~/.vim/indent/
-	cp vim/syntax/* ~/.vim/syntax/
-	cp vim/filetype.vim ~/.vim/filetype.vim
+	mkdir -p ~/.vim
+	cp -R vim/ftplugin ~/.vim/
+	cp -R vim/indent ~/.vim/
+	cp -R vim/syntax ~/.vim/
+	cp vim/filetype.vim ~/.vim/
 
 screen:
 	cp screenrc ~/.screenrc
