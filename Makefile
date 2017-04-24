@@ -14,6 +14,8 @@ vim:
 	cp vimrc ~/.vimrc
 	mkdir -p ~/.vim/ftplugin
 	cp vim/ftplugin/* ~/.vim/ftplugin/
+	cp vim/indent/* ~/.vim/indent/
+	cp vim/syntax/* ~/.vim/syntax/
 	cp vim/filetype.vim ~/.vim/filetype.vim
 
 screen:
