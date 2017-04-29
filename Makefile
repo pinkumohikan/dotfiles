@@ -9,6 +9,7 @@ install:
 	$(MAKE) ssh
 	$(MAKE) mysql
 	$(MAKE) siege
+	$(MAKE) bash
 
 vim:
 	cp vimrc ~/.vimrc
@@ -35,3 +36,9 @@ mysql:
 siege:
 	mkdir -p ~/.siege
 	cp siege/siege.conf ~/.siege/siege.conf
+
+bash:
+	cp _bash_profile ~/._bash_profile
+	grep '._bash_profile' ~/.bash_profile >/dev/null || echo "source ~/._bash_profile" >> ~/.bash_profile
+	cp _bashrc ~/._bashrc
+	grep '._bashrc' ~/.bashrc >/dev/null || echo "source ~/._bashrc" >> ~/.bashrc
