@@ -23,6 +23,9 @@ screen:
 	cp screenrc ~/.screenrc
 
 git:
+	mkdir -p ~/.git/contrib/completion/
+	curl -sS https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > ~/.git/contrib/completion/git-prompt.sh
+	curl -sS https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > ~/.git/contrib/completion/git-completion.bash
 	cp git/gitconfig ~/.gitconfig
 
 ssh:
