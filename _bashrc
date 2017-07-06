@@ -1,4 +1,5 @@
 alias ll='ls -al'
+alias vim='vi'
 
 source ~/.git/contrib/completion/git-prompt.sh
 source ~/.git/contrib/completion/git-completion.bash
