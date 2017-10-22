@@ -1,1 +1,3 @@
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export GOPATH=$HOME/go
+export PATH=$HOME/go/bin:$PATH
