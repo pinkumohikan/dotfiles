@@ -1,3 +1,9 @@
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:$PATH
+
+[[ -f ~/.nvm/nvm.sh ]] && \
+    . ~/.nvm/nvm.sh && \
+    nvm use default && \
+    npm_dir=${NVM_PATH}_modules && \
+    export NODE_PATH=$npm_dir
