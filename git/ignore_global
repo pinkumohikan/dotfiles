@@ -1,0 +1,8 @@
+# Dir
+.idea/
+
+# Extension
+*.swp
+
+# File
+.DS_Store
