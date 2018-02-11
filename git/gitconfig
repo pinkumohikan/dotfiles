@@ -4,7 +4,8 @@
 [push]
 	default = current
 [core]
-	editor = vi
+	quotepath = false
+	editor = vim
 [color]
 	ui = true
 [alias]
