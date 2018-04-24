@@ -47,3 +47,7 @@ bash:
 	grep '._bash_profile' ~/.bash_profile >/dev/null || echo "source ~/._bash_profile" >> ~/.bash_profile
 	cp _bashrc ~/._bashrc
 	grep '._bashrc' ~/.bashrc >/dev/null || echo "source ~/._bashrc" >> ~/.bashrc
+
+karabiner:
+	mkdir -p ~/.config/karabiner/
+	cp karabiner/karabiner.json ~/.config/karabiner/karabiner.json
