@@ -11,6 +11,8 @@ install:
 	$(MAKE) siege
 	$(MAKE) bash
 
+mac: install karabiner
+
 vim:
 	cp vimrc ~/.vimrc
 	mkdir -p ~/.vim
@@ -51,3 +53,5 @@ bash:
 karabiner:
 	mkdir -p ~/.config/karabiner/
 	cp karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+	mkdir -p ~/.config/karabiner/assets/complex_modifications/
+	cp karabiner/assets/complex_modifications/1501466982.json ~/.config/karabiner/assets/complex_modifications/1501466982.json
