@@ -1,5 +1,5 @@
 
-.PHONY: defualt install vim screen git ssh mysql siege
+.PHONY: defualt install mac vim screen git ssh mysql siege karabiner
 default: install
 
 install:
