@@ -11,3 +11,6 @@ source ~/.git/contrib/completion/git-prompt.sh
 source ~/.git/contrib/completion/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[35m\]\w$(__git_ps1)\[\033[00m\]\n$ '
+
+HISTSIZE=10000
+HISTFILESIZE=10000
