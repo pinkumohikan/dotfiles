@@ -47,6 +47,7 @@ siege:
 bash:
 	cp _bash_profile ~/._bash_profile
 	grep '._bash_profile' ~/.bash_profile >/dev/null || echo "source ~/._bash_profile" >> ~/.bash_profile
+	grep '._bashrc' ~/.bash_profile >/dev/null || echo "source ~/._bashrc" >> ~/.bash_profile
 	cp _bashrc ~/._bashrc
 	grep '._bashrc' ~/.bashrc >/dev/null || echo "source ~/._bashrc" >> ~/.bashrc
 
