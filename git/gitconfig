@@ -6,6 +6,7 @@
 [core]
 	quotepath = false
 	editor = vim
+	ignorecase = false
 [color]
 	ui = true
 [alias]
