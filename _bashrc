@@ -2,9 +2,6 @@ alias ll='ls -al'
 alias vim='vi'
 
 alias g='git'
-alias gd='git diff'
-alias gdc='git diff cached'
-alias gbr='git branch'
 alias gpp='git pull --prune'
 
 source ~/.git/contrib/completion/git-prompt.sh
