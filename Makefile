@@ -11,7 +11,7 @@ install:
 	$(MAKE) siege
 	$(MAKE) bash
 
-mac: install karabiner
+mac: install karabiner mac-php
 
 vim:
 	cp vimrc ~/.vimrc
@@ -56,3 +56,8 @@ karabiner:
 	cp karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 	mkdir -p ~/.config/karabiner/assets/complex_modifications/
 	cp karabiner/assets/complex_modifications/1501466982.json ~/.config/karabiner/assets/complex_modifications/1501466982.json
+
+mac-php:
+	sudo cp /etc/php.ini.default /etc/php.ini
+	sudo sed -i ''  's/display_errors = Off/display_errors = On/' /etc/php.ini
+	sudo sed -i ''  's/display_startup_errors = Off/display_startup_errors = On/' /etc/php.ini
