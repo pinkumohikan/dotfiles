@@ -3,6 +3,7 @@ alias vim='vi'
 
 alias g='git'
 alias gpp='git pull --prune'
+alias grep='grep --color=auto --exclude-dir=.git'
 
 source ~/.git/contrib/completion/git-prompt.sh
 source ~/.git/contrib/completion/git-completion.bash
