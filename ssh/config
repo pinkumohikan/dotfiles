@@ -1,2 +1,4 @@
-ServerAliveInterval 10
-ServerAliveCountMax 6
+Compression yes
+
+ServerAliveInterval 15
+ServerAliveCountMax 3
