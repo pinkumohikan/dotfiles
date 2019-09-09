@@ -11,7 +11,7 @@ install:
 	$(MAKE) siege
 	$(MAKE) bash
 
-mac: install karabiner mac-php
+mac: install karabiner mac-php mac-bash
 
 vim:
 	cp vimrc ~/.vimrc
@@ -50,6 +50,10 @@ bash:
 	grep '._bashrc' ~/.bash_profile >/dev/null || echo "source ~/._bashrc" >> ~/.bash_profile
 	cp _bashrc ~/._bashrc
 	grep '._bashrc' ~/.bashrc >/dev/null || echo "source ~/._bashrc" >> ~/.bashrc
+
+mac-bash:
+	cp _bash_profile_mac ~/._bash_profile_mac
+	grep '._bash_profile_mac' ~/.bash_profile >/dev/null || echo "source ~/._bash_profile_mac" >> ~/.bash_profile
 
 karabiner:
 	mkdir -p ~/.config/karabiner/
