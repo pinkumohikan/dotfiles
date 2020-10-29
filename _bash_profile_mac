@@ -15,3 +15,5 @@ export CPPFLAGS="-I/usr/local/opt/libressl/include"
 
 export PATH="/usr/local/opt/php\@7.4/bin/:$PATH"
 alias php=/usr/local/opt/php\@7.4/bin/php
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
