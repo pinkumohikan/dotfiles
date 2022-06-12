@@ -2,16 +2,7 @@
 .PHONY: defualt install mac vim screen git ssh mysql siege bash mac-bash karabiner mac-php npm
 default: install
 
-install:
-	$(MAKE) vim
-	$(MAKE) screen
-	$(MAKE) git
-	$(MAKE) ssh
-	$(MAKE) mysql
-	$(MAKE) siege
-	$(MAKE) bash
-	$(MAKE) bash
-	$(MAKE) npm
+install: vim screen git ssh mysql siege bash npm
 
 mac: install karabiner mac-php mac-bash
 
