@@ -1,5 +1,5 @@
 
-.PHONY: defualt install mac vim screen git ssh mysql siege karabiner
+.PHONY: defualt install mac vim screen git ssh mysql siege bash mac-bash karabiner mac-php npm
 default: install
 
 install:
@@ -10,6 +10,8 @@ install:
 	$(MAKE) mysql
 	$(MAKE) siege
 	$(MAKE) bash
+	$(MAKE) bash
+	$(MAKE) npm
 
 mac: install karabiner mac-php mac-bash
 
@@ -65,3 +67,7 @@ mac-php:
 	sudo cp /etc/php.ini.default /etc/php.ini
 	sudo sed -i ''  's/display_errors = Off/display_errors = On/' /etc/php.ini
 	sudo sed -i ''  's/display_startup_errors = Off/display_startup_errors = On/' /etc/php.ini
+
+npm:
+	cp npmrc ~/.npmrc
+
