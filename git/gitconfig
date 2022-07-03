@@ -1,15 +1,20 @@
 [user]
 	name = Hokuto Shinoda
 	email = pinkumohikan+github@gmail.com
+
 [push]
 	default = current
+
 [core]
 	quotepath = false
 	editor = vim
 	ignorecase = false
+	excludesfile = ~/.gitignore_global
+
 [color]
 	ui = true
+
 [alias]
     st = status
-    co = checkout
     br = branch
+    sw = switch
