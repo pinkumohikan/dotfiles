@@ -1,10 +1,8 @@
 
-.PHONY: defualt install mac vim screen git ssh mysql siege bash mac-bash karabiner mac-php npm
+.PHONY: defualt install vim screen git ssh mysql siege bash npm
 default: install
 
 install: vim screen git ssh mysql siege bash npm
-
-mac: install karabiner mac-php mac-bash
 
 vim:
 	cp vimrc ~/.vimrc
@@ -26,9 +24,9 @@ git:
 	git config --global core.excludesfile ~/.gitignore_global
 
 ssh:
-	mkdir -p ~/.ssh
-	cp ssh/config ~/.ssh/config
-	chmod 700 ~/.ssh ~/.ssh/config
+	mkdir -p ~/.ssh && chmod 700 ~/.ssh
+	cp ssh/config ~/.ssh/config && chmod 700 ~/.ssh/config
+	touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
 
 mysql:
 	cp mysql/my.cnf ~/.my.cnf
@@ -45,11 +43,19 @@ bash:
 	cp _bashrc ~/._bashrc
 	grep '._bashrc' ~/.bashrc >/dev/null || echo "source ~/._bashrc" >> ~/.bashrc
 
+npm:
+	cp npmrc ~/.npmrc
+
+
+# for MacOS
+.PHONY: mac mac-bash mac-karabiner mac-php
+mac: install mac-bash mac-karabiner mac-php
+
 mac-bash:
 	cp _bash_profile_mac ~/._bash_profile_mac
 	grep '._bash_profile_mac' ~/.bash_profile >/dev/null || echo "source ~/._bash_profile_mac" >> ~/.bash_profile
 
-karabiner:
+mac-karabiner:
 	mkdir -p ~/.config/karabiner/
 	cp karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 	mkdir -p ~/.config/karabiner/assets/complex_modifications/
@@ -59,7 +65,4 @@ mac-php:
 	sudo cp /etc/php.ini.default /etc/php.ini
 	sudo sed -i ''  's/display_errors = Off/display_errors = On/' /etc/php.ini
 	sudo sed -i ''  's/display_startup_errors = Off/display_startup_errors = On/' /etc/php.ini
-
-npm:
-	cp npmrc ~/.npmrc
 
