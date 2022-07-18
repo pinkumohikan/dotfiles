@@ -66,3 +66,11 @@ mac-php:
 	sudo sed -i ''  's/display_errors = Off/display_errors = On/' /etc/php.ini
 	sudo sed -i ''  's/display_startup_errors = Off/display_startup_errors = On/' /etc/php.ini
 
+
+# for ISUCON
+.PHONY: isucon isucon-git
+isucon: install isucon-git
+
+isucon-git:
+	cp git/gitconfig.isucon ~/.gitconfig
+

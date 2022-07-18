@@ -1,0 +1,20 @@
+[user]
+	name = ISUCON Player
+	email = player@isucon.net
+
+[push]
+	default = current
+
+[core]
+	quotepath = false
+	editor = vim
+	ignorecase = false
+	excludesfile = ~/.gitignore_global
+
+[color]
+	ui = true
+
+[alias]
+    st = status
+    br = branch
+    ch = checkout
