@@ -4,6 +4,7 @@ alias vim='vi'
 alias g='git'
 alias gpp='git pull --prune'
 alias grep='grep --color=auto --exclude-dir=.git'
+alias kirei="git branch | grep -v '* ' | xargs git branch -d"
 
 source ~/.git/contrib/completion/git-prompt.sh
 source ~/.git/contrib/completion/git-completion.bash
