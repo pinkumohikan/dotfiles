@@ -36,12 +36,14 @@ siege:
 	cp siege/siege.conf ~/.siege/siege.conf
 
 bash:
+	# bashrc
+	cp _bashrc ~/._bashrc
+	grep '._bashrc' ~/.bashrc >/dev/null || echo "source ~/._bashrc" >> ~/.bashrc
+	# bash_profile
 	cp _bash_profile ~/._bash_profile
 	grep '.bashrc' ~/.bash_profile >/dev/null || echo "source ~/.bashrc" >> ~/.bash_profile
 	grep '._bashrc' ~/.bash_profile >/dev/null || echo "source ~/._bashrc" >> ~/.bash_profile
 	grep '._bash_profile' ~/.bash_profile >/dev/null || echo "source ~/._bash_profile" >> ~/.bash_profile
-	cp _bashrc ~/._bashrc
-	grep '._bashrc' ~/.bashrc >/dev/null || echo "source ~/._bashrc" >> ~/.bashrc
 
 npm:
 	cp npmrc ~/.npmrc
