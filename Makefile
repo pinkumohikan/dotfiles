@@ -50,23 +50,20 @@ npm:
 
 
 # for MacOS
-.PHONY: mac mac-bash mac-karabiner mac-php
-mac: install mac-bash mac-karabiner mac-php
+.PHONY: mac mac-bash mac-karabiner
+mac: install mac-bash mac-karabiner
 
 mac-bash:
+	cp _bashrc_mac ~/._bashrc_mac
+	grep '._bashrc_mac' ~/.bashrc >/dev/null || echo "source ~/._bashrc_mac" >> ~/.bashrc
 	cp _bash_profile_mac ~/._bash_profile_mac
 	grep '._bash_profile_mac' ~/.bash_profile >/dev/null || echo "source ~/._bash_profile_mac" >> ~/.bash_profile
 
 mac-karabiner:
-	mkdir -p ~/.config/karabiner/
+	mkdir -p ~/.config/karabiner
 	cp karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 	mkdir -p ~/.config/karabiner/assets/complex_modifications/
 	cp karabiner/assets/complex_modifications/1501466982.json ~/.config/karabiner/assets/complex_modifications/1501466982.json
-
-mac-php:
-	sudo cp /etc/php.ini.default /etc/php.ini
-	sudo sed -i ''  's/display_errors = Off/display_errors = On/' /etc/php.ini
-	sudo sed -i ''  's/display_startup_errors = Off/display_startup_errors = On/' /etc/php.ini
 
 
 # for ISUCON
