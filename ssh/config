@@ -1,4 +1,5 @@
 Compression yes
+ForwardAgent yes
 
 ServerAliveInterval 15
 ServerAliveCountMax 3
