@@ -1,8 +1,8 @@
 
-.PHONY: defualt install vim screen git ssh mysql siege bash npm
+.PHONY: defualt install vim screen git ssh mysql siege bash npm awscli
 default: install
 
-install: vim screen git ssh mysql siege bash npm
+install: vim screen git ssh mysql siege bash npm awscli
 
 vim:
 	cp vimrc ~/.vimrc
@@ -48,6 +48,9 @@ bash:
 npm:
 	cp npmrc ~/.npmrc
 
+awscli:
+	install -dm 0755 ~/.aws
+	install -bCm 0644 ./aws/config ~/.aws/config
 
 # for MacOS
 .PHONY: mac mac-bash mac-karabiner
