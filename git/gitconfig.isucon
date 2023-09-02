@@ -18,3 +18,4 @@
     st = status
     br = branch
     ch = checkout
+    sw = switch
