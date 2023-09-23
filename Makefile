@@ -70,9 +70,16 @@ mac-karabiner:
 
 
 # for ISUCON
-.PHONY: isucon isucon-git
-isucon: install isucon-git
+.PHONY: isucon isucon-git isucon-ssh
+isucon: install isucon-git isucon-ssh
+	sudo chsh -s /bin/bash isucon
 
 isucon-git:
 	cp git/gitconfig.isucon ~/.gitconfig
+
+isucon-ssh:
+	install -bCm 0644 ./ssh/config-isucon ~/.ssh/config
+	echo "" >> ~/.ssh/authorized_keys
+	echo "# ISUCON" >> ~/.ssh/authorized_keys
+	cat ssh/isucon_player.pub >> ~/.ssh/authorized_keys
 

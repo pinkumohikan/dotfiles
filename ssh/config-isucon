@@ -1,0 +1,10 @@
+Compression yes
+ForwardAgent yes
+
+ServerAliveInterval 15
+ServerAliveCountMax 3
+
+Host isucon-*
+  Port 22
+  User isucon
+  IdentityFile ~/.ssh/isucon_player
