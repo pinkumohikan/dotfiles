@@ -1,2 +1,8 @@
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:$HOME/bin:$PATH
+
+if command -v aws-vault >/dev/null 2>&1; then
+  export AWS_VAULT_BACKEND=pass
+  export AWS_SESSION_TOKEN_TTL=12h
+  export AWS_VAULT_PASS_PREFIX=aws-vault
+fi

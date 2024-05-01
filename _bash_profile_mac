@@ -1,18 +1,26 @@
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+# bash
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
+# NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-
+# curl
 export PATH="/usr/local/opt/curl/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/curl/lib"
 export CPPFLAGS="-I/usr/local/opt/curl/include"
 
+# libressl
 export PATH="/usr/local/opt/libressl/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/libressl/lib"
 export CPPFLAGS="-I/usr/local/opt/libressl/include"
 
+# Homebrew
 export PATH="/usr/local/opt/php@8.2/bin/:/opt/homebrew/bin:$PATH"
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-export BASH_SILENCE_DEPRECATION_WARNING=1
+# aws-vault
+if command -v aws-vault >/dev/null 2>&1; then
+  export AWS_VAULT_BACKEND=keychain
+fi
