@@ -1,0 +1,13 @@
+# https://ghostty.org/docs/config/reference
+# https://zenn.dev/koya_iwamura/articles/65e4fbb747bcd2#shell-integration
+
+shell-integration = bash
+
+confirm-close-surface = false
+
+mouse-scroll-multiplier = 2
+
+unfocused-split-opacity = 0.825
+
+resize-overlay = never
+

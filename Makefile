@@ -53,8 +53,8 @@ awscli:
 	install -bCm 0644 ./aws/config ~/.aws/config
 
 # for MacOS
-.PHONY: mac mac-bash mac-karabiner
-mac: install mac-bash mac-karabiner
+.PHONY: mac mac-bash mac-karabiner ghostty
+mac: install mac-bash mac-karabiner ghostty
 
 mac-bash:
 	cp _bashrc_mac ~/._bashrc_mac
@@ -67,6 +67,10 @@ mac-karabiner:
 	cp karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 	mkdir -p ~/.config/karabiner/assets/complex_modifications/
 	cp karabiner/assets/complex_modifications/1501466982.json ~/.config/karabiner/assets/complex_modifications/1501466982.json
+
+ghostty:
+	mkdir -p ~/.config/ghostty
+	install -bC ./ghostty/config ~/.config/ghostty
 
 
 # for ISUCON
