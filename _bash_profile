@@ -1,7 +1,13 @@
-export PATH=$HOME/go/bin:$HOME/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
-# go
+# Go
 export GOPATH=$HOME/go
+if test -d /usr/local/go/bin; then
+  export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
+fi
+if test -d $HOME/go/bin; then
+  export PATH=$HOME/go/bin:$PATH
+fi
 
 # aws-vault
 if command -v aws-vault >/dev/null 2>&1; then
