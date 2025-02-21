@@ -11,3 +11,5 @@ unfocused-split-opacity = 0.825
 
 resize-overlay = never
 
+# Cmd+rでclear
+keybind = command+r=text:\x0c
