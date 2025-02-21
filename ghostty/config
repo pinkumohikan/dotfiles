@@ -14,4 +14,4 @@ resize-overlay = never
 # Cmd+rでclear
 keybind = command+r=text:\x0c
 # デフォルトフォントの JetBrains Mono では日本語がたまに豆腐っちゃう
-font-family = "UDEV Gothic HS Regular"
+font-family = "Osaka−等幅"
