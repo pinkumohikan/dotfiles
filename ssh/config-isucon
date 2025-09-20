@@ -8,3 +8,7 @@ Host isucon-*
   Port 22
   User isucon
   IdentityFile ~/.ssh/isucon_player
+
+Host github-isucon-secrets-repository
+  HostName github.com
+  IdentityFile ~/.ssh/deploy-key-isucon-secrets
