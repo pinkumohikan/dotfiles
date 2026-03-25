@@ -9,7 +9,7 @@
 	quotepath = false
 	editor = vim
 	ignorecase = false
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.config/git/ignore
 
 [color]
 	ui = true
