@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || {
+  echo "Error: git リポジトリ内で実行してください."
+  exit 1
+}
+cd "$REPO_ROOT"
+
+AGENT_CMD=""
+for cmd in cursor-agent agent; do
+  if command -v "$cmd" &>/dev/null; then
+    AGENT_CMD="$cmd"
+    break
+  fi
+done
+if [ -z "$AGENT_CMD" ]; then
+  echo "Error: cursor-cli (cursor-agent / agent) がインストールされていません. brew install cursor-agent または https://cursor.com/docs/cli/installation を参照してください."
+  exit 1
+fi
+if ! command -v gh &>/dev/null; then
+  echo "Error: gh がインストールされていません. https://cli.github.com/ を参照してください."
+  exit 1
+fi
+if ! command -v jq &>/dev/null; then
+  echo "Error: jq がインストールされていません. brew install jq を参照してください."
+  exit 1
+fi
+
+BRANCH=$(git branch --show-current)
+BASE="${PR_BASE:-origin/main}"
+COMMITS=$(git log "$BASE..HEAD" --oneline 2>/dev/null || true)
+if [ -z "$COMMITS" ]; then
+  COMMITS=$(git log -5 --oneline)
+fi
+
+PR_TEMPLATE="${PR_TEMPLATE:-$REPO_ROOT/docs/pull-request.md}"
+if [ -f "$PR_TEMPLATE" ]; then
+  TEMPLATE_INSTRUCTION="docs/pull-request.md を参照し、そのルールに従って"
+else
+  TEMPLATE_INSTRUCTION=""
+fi
+
+PROMPT="${TEMPLATE_INSTRUCTION}以下の変更からPull Requestのタイトルと本文を生成してください。
+
+【出力形式（厳守）】
+説明や前置きは一切書かず、以下のJSONオブジェクト1つだけを出力すること。改行は \\n でエスケープすること。
+「## 関連するIssue」のセクションには「**人間へ** ここはあなたが手動で追記してください」とだけ書くこと（自動生成しない）。
+「特筆事項」のセクションに記載する事項がない場合は、「特筆事項」のセクションを省略すること。
+
+{\"title\": \"PRタイトル（日本語・10-40文字程度）\", \"body\": \"# 概要\\n\\n...\\n\\n# 備考\\n\\n...\"}
+
+【このブランチの情報】
+ブランチ: $BRANCH
+ベース: $BASE
+
+コミット一覧:
+$COMMITS"
+
+OUT=$("$AGENT_CMD" --trust -p "$PROMPT" 2>/dev/null || true)
+if [ -z "$OUT" ]; then
+  echo "Error: agent から出力が得られませんでした."
+  exit 1
+fi
+
+if [[ "$OUT" == *'```json'* ]]; then
+  JSON=$(echo "$OUT" | sed -n '/^```json$/,/^```$/p' | sed '1d;$d')
+else
+  JSON=$(echo "$OUT" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+fi
+JSON=$(echo "$JSON" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+
+# 出力の前後に余分なテキストがある場合、最初の { から最後の } までを抽出
+if [ -n "$JSON" ] && ! echo "$JSON" | jq -e . >/dev/null 2>&1; then
+  JSON=$(echo "$JSON" | sed 's/^[^{]*//' | rev | sed 's/^[^}]*//' | rev)
+fi
+
+TITLE=$(echo "$JSON" | jq -r '.title // empty')
+BODY=$(echo "$JSON" | jq -r '.body // empty')
+
+if [ -z "$TITLE" ] || [ -z "$BODY" ]; then
+  echo "Error: agent の出力から title または body を取得できませんでした."
+  echo "Output: ${OUT:0:500}..."
+  exit 1
+fi
+
+PR_URL=$(echo "$BODY" | gh pr create --assignee @me --draft --base "${BASE#origin/}" --title "$TITLE" --body-file -)
+echo "Created PR: $TITLE"
+echo "$PR_URL"

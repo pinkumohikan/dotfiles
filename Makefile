@@ -1,5 +1,5 @@
 
-.PHONY: defualt install vim screen git ssh mysql siege bash npm awscli
+.PHONY: defualt install vim screen git ssh mysql siege bash npm awscli bin
 default: install
 
 install: vim screen git ssh mysql siege bash npm awscli
@@ -54,7 +54,7 @@ awscli:
 
 # for MacOS
 .PHONY: mac mac-bash mac-karabiner ghostty
-mac: install mac-bash mac-karabiner ghostty
+mac: install mac-bash mac-karabiner ghostty bin
 
 mac-bash:
 	cp _bashrc_mac ~/._bashrc_mac
@@ -87,3 +87,6 @@ isucon-ssh:
 	echo "# ISUCON" >> ~/.ssh/authorized_keys
 	cat ssh/isucon_player.pub >> ~/.ssh/authorized_keys
 
+bin:
+	mkdir -p ~/bin
+	install -Cm 0755 bin/make-pr ~/bin/make-pr
