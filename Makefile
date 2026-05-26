@@ -1,5 +1,5 @@
 
-.PHONY: defualt install vim screen git ssh mysql siege bash npm awscli bin
+.PHONY: default install vim screen git ssh mysql siege bash npm awscli bin
 default: install
 
 install: vim screen git ssh mysql siege bash npm awscli
@@ -25,7 +25,7 @@ git:
 
 ssh:
 	mkdir -p ~/.ssh && chmod 700 ~/.ssh
-	cp ssh/config ~/.ssh/config && chmod 700 ~/.ssh/config
+	cp ssh/config ~/.ssh/config && chmod 600 ~/.ssh/config
 	touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
 
 mysql:
