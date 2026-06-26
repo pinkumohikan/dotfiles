@@ -1,7 +1,6 @@
 # Dir
-.idea
-.junie
 .cursor
+.claude
 
 # Extension
 *.swp
