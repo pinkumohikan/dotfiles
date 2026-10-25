@@ -53,8 +53,8 @@ awscli:
 	install -bCm 0644 ./aws/config ~/.aws/config
 
 # for MacOS
-.PHONY: mac mac-bash mac-karabiner ghostty
-mac: install mac-bash mac-karabiner ghostty bin
+.PHONY: mac mac-bash mac-karabiner ghostty ai-skill
+mac: install mac-bash mac-karabiner ghostty bin ai-skill
 
 mac-bash:
 	cp _bashrc_mac ~/._bashrc_mac
@@ -72,6 +72,11 @@ ghostty:
 	mkdir -p ~/.config/ghostty
 	install -bC ./ghostty/config ~/.config/ghostty
 
+ai-skill:
+	mkdir -p ~/.agent/skills ~/.cursor ~/.claude
+	rm -rf ~/.cursor/skills ~/.claude/skills
+	ln -s ~/.agent/skills ~/.cursor/skills
+	ln -s ~/.agent/skills ~/.claude/skills
 
 # for ISUCON
 .PHONY: isucon isucon-git isucon-ssh
