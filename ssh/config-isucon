@@ -7,7 +7,7 @@ ServerAliveCountMax 3
 Host isucon-*
   Port 22
   User isucon
-  IdentityFile ~/.ssh/isucon_player
+  IdentityFile ~/.ssh/isucon-player
 
 Host github-isucon-secrets-repository
   HostName github.com
